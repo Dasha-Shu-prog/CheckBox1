@@ -5,28 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CheckBox1"
         mc:Ignorable="d"
-        Background="#FF252020"
-        Title="MainWindow" Height="450" Width="800">
+        Background="#FF252020" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="450">
     <Window.Resources>
         <Style TargetType="CheckBox">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=box, Path=IsChecked}"
-                             Value="True">
+                <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Background" Value="BurlyWood"/>
-                </DataTrigger>
+                    <Setter Property="BorderBrush" Value="BlueViolet"/>
+                </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="ToolTip" Value="Ничего не происходит..."/>
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
     <Grid>
-        <CheckBox  x:Name="box"
+        <CheckBox  x:Name="box" Content="Hello!"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   FontSize="24" Click="CheckBox_Click"
+                   FontSize="34" Click="CheckBox_Click"
                    VerticalContentAlignment="Center"
                    HorizontalContentAlignment="Center"
-                   Content="Hello!" Foreground="BurlyWood"/>
+                   Foreground="BurlyWood">
+        </CheckBox>
     </Grid>
 </Window>
